@@ -4,7 +4,7 @@
 ## About The Project
 
 
-This project was done during the the course "web software development" in Aalto University. This application is a tool for self monitoring and summarizing data. The project github can be found at https://github.com/SanttuSi/SM_WebApp 
+This project was done during the the course "web software development" in Aalto University. This application is a tool for self monitoring and summarizing data. The project github can be found at https://github.com/SanttuSi/SelfMonitorWebApp 
 
 ### Built With
 
@@ -50,7 +50,7 @@ ADD CONSTRAINT U_IDD UNIQUE (id);
    ```
 3. Clone the repo
  ```sh
- git clone https://https://github.com/SanttuSi/SM_WebApp.git
+ git clone https://https://github.com/SanttuSi/SelfMonitorWebApp.git
  ```
 4. Set the database's maximum concurrent connections (e.g 4) and input the required database parameters in the file config/config.js
  ```js
