@@ -1,0 +1,61 @@
+<%- include('./partials/header.ejs') %>
+
+<script src="/static/code.js" defer></script>
+<br>
+<br>
+<h1 class="centred">Summary</h1>
+
+<form method='POST' action='/behavior/summary' id="frm">
+    <input type="week" name="week" value=<%=weekData.week%> onchange="submitForm()">
+    <noscript>
+        <input type="submit" value="Get summary" style="margin: 0 auto; display: block;">
+    </noscript>
+</form>
+<% if (!weekData.sleepQuality && !weekData.food) { %>
+    <p class="centred">Not enough data from this week!</p>
+<% } else{ %>
+    <div class="centred" id="weekSumm" style="border-style: solid; width: 100%;">
+    <h3> Summary of week <%= weekData.week.substring(6,8) + ', '+ weekData.week.substring(0,4) %>: </h3>
+    <h4>On average:</h4>
+    <li> Your mood was <%= weekData.mood.toFixed(2) %> / 5  </li>
+    <% if (weekData.sleepQuality) { %>
+            <li> You have slept <%= weekData.sleepTime.toFixed(2)%> hours per day. </li>
+            <li> Your sleeping quality was <%= weekData.sleepQuality.toFixed(2)%> / 5. </li>
+    <% } if (weekData.food){%>
+            <li> You spent <%= weekData.sports.toFixed(2) %> hours excercising per day. </li>
+            <li>You spent <%= weekData.study.toFixed(2) %> hours studying per day. </li>
+            <li> Your food's quality was <%= weekData.food.toFixed(2)%> / 5. </li>
+            <li> Your reqularity of eating was <%= weekData.reqularity.toFixed(2) %> / 5.</li>
+    <% } %>
+    </div>
+
+<% } %>  
+<br>
+<form method='POST' action='/behavior/summary' id="monthForm">
+    <input type="month" name="month" value=<%=monthData.month%> onchange="submitFormM()">
+    <noscript>
+        <input type="submit" value="Get summary" style="margin: 0 auto; display: block;">
+    </noscript>
+</form>
+<% if (!monthData.sleepQuality && !monthData.food) { %>
+    <p class="centred">Not enough data from this month!</p>
+<% } else{ %>
+    <div class="centred" id="weekSumm" style="border-style: solid; width: 100%;">
+    <h3> Summary of month <%= monthData.month.substring(5,7) +', '+ monthData.month.substring(0,4)+ ':'  %>  </h3>
+    <h4>On average:</h4>
+    <li> Your mood was <%= monthData.mood.toFixed(2); %> / 5  </li>
+    <% if (monthData.sleepQuality ) { %>
+            <li> You have slept <%= monthData.sleepTime.toFixed(2)%> hours per day. </li>
+            <li> Your sleeping quality was <%= monthData.sleepQuality.toFixed(2)%> / 5. </li>
+    <% } if (monthData.food){%>
+            <li> You spent <%= monthData.sports.toFixed(2) %> hours excercising per day. </li>
+            <li>You spent <%= monthData.study.toFixed(2) %> hours studying per day. </li>
+            <li> Your food's quality was <%= monthData.food.toFixed(2)%> / 5. </li>
+            <li> Your reqularity of eating was <%= monthData.reqularity.toFixed(2) %> / 5.</li>
+    <% } %>
+    </div>
+    <br>
+
+<% } %>  
+
+<%- include('./partials/footer.ejs') %>

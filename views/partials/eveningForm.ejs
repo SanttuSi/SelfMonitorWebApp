@@ -1,0 +1,47 @@
+<form method='POST' action='/behavior/reporting/evening'>
+    <h2>Date</h2>
+    <input type="date" name="date" value=<% if (errors){%><%= date; %><%} else{ %> <%= new Date().toISOString().substring(0,10);%> <% } %> >
+    <% if (dateErrors){ %> <p class="centred" style="color: red;"> Date must be entered in date format! (DD-MM-YYYY) </p> <%}%>
+
+    <h2>Time spent on sports</h2>
+    <input type="number" name="duration" step=".01" value= <% if (errors) { %><%= time %> <% } else{ %> 0<% } %>  >
+    <% if (timeErrors){ %> <p class="centred" style="color: red;"> Sports time must be a number between 0 and 24. </p> <%}%>
+    <h2>Time spent studying</h2>
+
+    <input type="number" name="study" step=".01" value= <% if (errors) { %><%= study %> <% } else{ %> 0<% } %>  >
+    <% if (studyErrors){ %> <p class="centred" style="color: red;"> Study time must be a number between 0 and 24. </p> <%}%>  
+
+    <h3 class="centred">Regularity Of Eating</h3>
+    <input type="range" name="regularity" min="1" max="5" list="tickmarks" class="slider" value=<% if (errors) { %><%= regularity %> <% }else{ %>3<% } %> >
+    <p style="float: left;">bad</p><p style="float: right;">good</p>
+    <p></p>
+    <% if (qualityErrors){ %> <p class="centred" style="color: red;"> Sleeping quality must be an integer between 1 and 5. </p> <%}%>
+
+    <h3 class="centred">Quality Of Eating</h3>
+    <input type="range" name="quality" id="quality" min="1" max="5" list="tickmarks" class="slider" value=<% if (errors) { %><%= quality %> <% }else{ %>3<% } %> >
+    <p style="float: left;">bad</p><p style="float: right;">good</p>
+    <p></p>
+    <% if (qualityErrors){ %> <p class="centred" style="color: red;"> Sleeping quality must be an integer between 1 and 5. </p> <%}%>
+
+    <h3 class="centred">Mood</h3>
+    <input type="range" name="mood" min="1" max="5" list="tickmarks" class="slider" value=<% if (errors) { %><%= mood %> <% }else{ %>3<% } %>>
+    <p></p> 
+    <p style="float: left;">bad</p><p style="float: right;">good</p>
+    <p></p>
+    <% if (moodErrors){ %> <p class="centred" style="color: red;"> Mood must be an integer between 1 and 5. </p> <% }%>
+
+
+    <datalist id="tickmarks">
+        <option value="1"></option>
+        <option value="2"></option>
+        <option value="3"></option>
+        <option value="4"></option>
+        <option value="5"></option>
+    </datalist>
+    <% if (submitted && errors){ %> <p class="centred" style="color: red;"> The report has errors and was not submitted. </p> <% } %>
+    <% if (submitted && !errors) { %> <p class="centred" style="color: green;"> Report submitted succesfully! </p> <% } %>  
+
+
+    <input type="submit" value="Submit Report" style="margin: 0 auto; display: block; width: 20em;" >
+
+</form>

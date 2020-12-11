@@ -1,0 +1,14 @@
+<%- include('./partials/header.ejs') %>
+<br>
+<h1 class="lined"> Morning or evening report?</h1>
+<br>
+<form method="GET" action ="/behavior/reporting/morning">
+    <input type="submit" value="Morning Report" style="margin: auto; display: block; width: 40em; height: 5em"/>
+<% if(morning==="done"){ %> <p class="centred"> Morning report for today has been submitted.</p> <% } %> 
+</form>
+<br>
+<form action ="/behavior/reporting/evening">
+    <input type="submit" value="Evening Report" style="margin: auto; display: block; width: 40em; height: 5em;"/>
+    <% if(evening==="done"){ %> <p class="centred"> Evening report for today has been submitted.</p> <% } %> 
+</form>
+<%- include('./partials/footer.ejs') %>

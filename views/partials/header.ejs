@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Mood Reporter</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
+    <style>
+     .navigation {
+      background: #f4f5f6;
+      border-bottom: .1rem solid #d1d1d1;
+      display: block;
+      height: 5.2rem;
+      left: 0;
+      max-width: 100%;
+      position: fixed;
+      right: 0;
+      top: 0;
+      width: 100%;
+      z-index: 2;
+    }
+    .nav-title{
+      display: inline;
+      color: #606c76;
+      margin-left: 2rem;
+      font-size: 1.6rem;
+      line-height: 5.2rem;
+      padding: 0;
+      text-decoration: none;
+    }
+    .navigation-link{
+      display: inline;
+      font-size: 1.6rem;
+      line-height: 5.2rem;
+      margin-left: 2.5rem;
+      padding: 0;
+      text-decoration: none;
+    }
+    
+    .navigation-list {
+      
+      list-style: none;
+      float: right;
+      margin-bottom: 0;
+      margin-right: 5rem;
+      }
+     .navigation-item {
+      float: left;
+      margin-bottom: 0;
+      margin-left: 2.5rem;
+      position: relative;
+    }
+    .lined{
+      text-align: center;
+      border-bottom: 0.1rem solid #d1d1d1;
+    }
+    
+    .centred{
+        text-align: center;
+    }
+    .slider {
+        width: 100%;
+    }
+    </style>
+    
+    <nav class="navigation">
+      
+      <a class="nav-title" href="/" style="padding-top: 2em;"> Home</a>
+      <div class="navigation-list">
+      <% if(user && user.id!=='') {%>
+      <p class="navigation-link">Logged in as <%= user.email %> </p>
+      <% }%> 
+      <a class="navigation-link" href="/behavior/summary" data-popover>Summary </a>
+      <a class="navigation-link" href="/behavior/reporting">Report</a>
+      <%  if (!user || user.id === '') {%>
+      <a class="navigation-link" href="/auth/login">Login</a>
+      <% } else{ %> 
+      <a class="navigation-link" href="/auth/logout">Logout</a>
+      <% } %>  
+      </div>
+    
+    </nav>
+  
+  </head>
+  <body>
+    <br>
+    <br>
+    <div class="container">

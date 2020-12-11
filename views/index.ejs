@@ -1,0 +1,48 @@
+<%- include('./partials/header.ejs') %>
+<br>
+
+    <h1 class="lined">Welcome to the Mood Reporter application!</h1>
+    <h3 class="centred">What does this application do?</h3>
+    <h4> This application can be used for reporting different kinds of data and the application processes this data and shows some metrics about the data.
+        For example:
+    </h4>
+    <h4>In average from all users: <br></h4>
+    <table>
+        <tbody>
+            <tr>
+                <td> 
+                    mood today
+                </td>
+                <td> 
+                    <%= !today ? "was not reported at all!": String(today.toFixed(2))+"/5.00" %>
+                </td>
+            </tr>
+        <tr>
+            <td>
+            mood yesterday </td>
+            <td>
+                <%= !yesterday ? "was not reported at all!": String(yesterday.toFixed(2))+"/5.00"%>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h4><%if( today && yesterday) { %> <%= today>=yesterday ? "Things are looking bright today.":"Things are looking gloomy today."%>  <%} %></h4>
+
+    
+
+    <h3 class="centred"> Start by logging in or registering!</h3>
+    <br>
+    <form method="GET" action="/auth/login" class="centred">
+        <input type="submit" value="Login">
+    </form>
+    <form method="GET" action="/auth/registration" class="centred">
+        <input type="submit" value="Register">
+    </form>
+    <h3 class="centred"> Then create reports!</h3>
+    <br>
+    <form method="GET" action="/behavior/reporting" class="centred">
+        <input type="submit" value="Create a report">
+    </form>
+
+<%- include('./partials/footer.ejs') %>

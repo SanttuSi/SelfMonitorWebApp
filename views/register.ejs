@@ -1,0 +1,20 @@
+<%- include('./partials/header.ejs') %>
+
+<h1 class="lined">Register as a user</h1>
+    <form method="POST" action="/auth/registration">
+            <h4>Email</h4>
+            <input type="email" name="email"/>
+            <% if (emailError){ %> <p style="color: red;"><%= emailError %> </p><% } %>
+            <h4>Password</h4>
+            <input type="password" name="password"/>
+            <h4>Repeat password</h4>
+            <input type="password" name="verification"/>
+            <% if (pwError){ %> <p style="color: red;"><%= pwError %> </p><% } %>
+            <div class="centred">
+            <input type="submit" value="Register!" style="width: 20%; height: 5em;"/>
+            </div>
+            <% if (submitMessage){ %> <p style="color: green;"><%= submitMessage %> </p><% } %>
+    </form>
+
+
+<%- include('./partials/footer.ejs') %>

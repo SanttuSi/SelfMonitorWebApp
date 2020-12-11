@@ -1,0 +1,17 @@
+<%- include('./partials/header.ejs') %>
+<div class="centred">
+<h1>Login</h1>
+    <form method="POST" action="/auth/login">
+            <h4>Email</h4>
+            <input type="email" name="email" class="centred"/>
+            <h4>Password</h4>
+            <input type="password" name="password" class="centred"/>
+            <% if (submitMessage){ %> <p style="color: red;"><%= submitMessage %> </p><% } %>
+            <input type="submit" value="Log In!" style="width: 20%; height: 5em;"/>
+    </form>
+    <p>Not a registered user? Register <a href="/auth/registration"> Here</a>.</p>
+    
+
+</div>
+
+<%- include('./partials/footer.ejs') %>
