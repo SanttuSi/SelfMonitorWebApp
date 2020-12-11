@@ -46,7 +46,7 @@ CREATE TABLE mornings (
 ALTER TABLE mornings
 ADD CONSTRAINT U_ID UNIQUE (id);
 ALTER TABLE evenings
-ADD CONSTRAINT U_ID UNIQUE (id);
+ADD CONSTRAINT U_IDD UNIQUE (id);
    ```
 3. Clone the repo
  ```sh
